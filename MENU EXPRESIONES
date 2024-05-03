@@ -1,0 +1,118 @@
+//menu para expresiones matematicas
+
+#include <iostream>
+#include <cmath>
+#include <stdlib.h>
+
+int main(){
+	
+	using namespace std;
+	
+	//INTERVALOS
+	
+	int a,b,c, hipotenusa = 0, raiz = 0, x = 0, y = 0;
+	float d,e, funcion = 0;
+	int opc;
+	bool volverMenu = true;
+	
+	do{
+		
+	//MENSAJES DE PANTALLA
+	
+	cout<<"- - - - - - - - - - - - - - - - - - - - - - - - -"<<endl;
+	cout<<"BIENVENIDO AL MENU PARA EXPRESIONES MATEMATICAS"<<endl;
+	cout<<"- - - - - - - - - - - - - - - - - - - - - - - - -"<<endl;
+	
+	cout<<"\nOPCION 1: Sacar la hipotenusa de un triangulo rectangulo";
+	cout<<"\nOPCION 2: Raiz y numero elevado a la potencia";
+	cout<<"\nOPCION 3: Formula cuadratica";
+	cout<<"\nOPCION 4: SALIR";
+	cout<<"\nEscoja una de las opciones: "; cin>>opc;
+	
+	switch (opc){
+		
+		case 1: 
+		
+		//HIPOTENUSA DE UN TRIANGULO 
+		
+		system("cls"); //LIMPIAMOS CONSOLA
+		
+		cout<<"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"<<endl;
+		cout<<"BIENVENIDO A LA PRIMERA OPCION: "<<endl;
+		cout<<"\nOPCION 1: Sacar la hipotenusa de un triangulo rectangulo"<<endl;
+	    cout<<"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"<<endl;
+	    
+		cout<<"\nDigita los valores de a y b: "; cin>>a>>b;
+		
+		hipotenusa = (a*a)+(b*b);
+		raiz = sqrt(hipotenusa);
+		
+		cout<<"\nLa hipotenusa del triangulo rectangulo es: "<<raiz<<endl;
+		
+		break;
+		
+		case 2:
+		
+		//RAIZ Y NUMERO ELEVADO
+		
+		system("cls"); //LIMPIAMOS CONSOLA
+		
+		cout<<"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"<<endl;
+		cout<<"BIENVENIDO A LA SEGUNDA OPCION: "<<endl;
+		cout<<"\nOPCION 2: Raiz y numero elevado a la potencia"<<endl;
+	    cout<<"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"<<endl;
+		
+		cout<< "Digita los valores de x: "; cin>>d;
+	    cout<< "Digita los valores de y: "; cin>>e;
+	
+     	funcion = (sqrt(d))/(pow(e,2)-1);
+	
+	    cout<<"\nEste es el resultado = "<<funcion<<endl;
+	
+	    break;
+		
+		case 3:
+		
+		//FORMULA CUADRATICA
+		
+		system("cls"); //LIMPIAMOS CONSOLA
+		
+		cout<<"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"<<endl;
+		cout<<"BIENVENIDO A LA TERCERA OPCION: "<<endl;
+		cout<<"\nOPCION 3: Formula cuadratica"<<endl;
+	    cout<<"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"<<endl;
+		
+		cout<<"Digita el valor de a: "; cin>>a;
+	    cout<<"Digita el valor de b: "; cin>>b;
+	    cout<<"Digita el valor de c: "; cin>>c;
+	
+	    x = (-b+(sqrt(pow(b,2))-(4*a*c)));
+	    y = (-b-(sqrt(pow(b,2))-(4*a*c)));
+	
+	   cout<<"\nEste es el resultado de x: "<<x<<endl;
+	   cout<<"Este es el resultado de y: "<<y<<endl;
+	   
+	   break;
+	   
+	   case 4: 
+	   
+	   system("cls");
+	   
+	    cout<<"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"<<endl;
+		cout<<"SALIENDO DEL PROGRAMA... "<<endl;
+	    cout<<"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"<<endl;
+	    
+	    
+	    break;
+	    
+		default: cout<<"Escoja una opcion valida"; break;
+}
+   if(volverMenu){
+   	 cout<<"\nQuiere volver al menu: (si: 1, no: 0): "; cin>>volverMenu;
+   }
+	
+	system("cls");
+    }while(volverMenu); 
+
+	return 0;
+}
