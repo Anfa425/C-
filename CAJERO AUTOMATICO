@@ -1,0 +1,190 @@
+#include <iostream>
+#include <stdlib.h>
+#include <string>
+#include <conio.h>
+#include <vector>
+
+#define ENTER 13
+#define BACKSPACE 8
+#define INTENTOS 3
+
+int main(){
+
+	
+	using namespace std;
+	
+	vector <string> usuarios;
+    vector <string> claves;
+	
+	int saldo = 1000, valor;
+	int opc;
+	int contrasena = 123;
+	bool volverMenu = true;
+	
+	//mensajes de pantalla
+		
+		// Se añaden usuarios al vector
+        usuarios.push_back("luis");
+        usuarios.push_back("jorge");
+		
+		// Se añaden claves al vector
+        claves.push_back("123");
+        claves.push_back("456");
+		
+		string usuario, password;
+
+        int contador = 0;
+        bool ingresa = false;
+	
+	
+	do{
+		
+		system("cls");
+        cout << "\t\t\tLOGIN DE USUARIO" << endl;
+        cout << "\t\t\t----------------" << endl;
+        cout << "\n\tUsuario: ";
+        getline(cin, usuario);
+
+        char caracter;
+
+        cout << "\tPassword: ";
+        caracter = getch();
+
+        password = "";
+
+        while (caracter != ENTER)
+        {
+
+            if (caracter != BACKSPACE)
+            {
+                password.push_back(caracter);
+                cout << "*";
+            }
+            else
+            {
+                if (password.length() > 0)
+                {
+                    cout << "\b \b";
+                    password = password.substr(0, password.length() - 1);
+                }
+            }
+
+            caracter = getch();
+        }
+
+        for (int i = 0; i < usuarios.size(); i++)
+        {
+            if (usuarios[i] == usuario && claves[i] == password)
+            {
+                ingresa = true;
+                break;
+            }
+        }
+
+        if (!ingresa)
+        {
+            cout << "\n\n\tEl usuario y/o password son incorrectos" << endl;
+            cin.get();
+            contador++;
+        }
+
+    } while (ingresa == false && contador < INTENTOS);
+		
+
+	
+	//MENU DEL CAJERO AUTOMATICO
+	
+		
+	do{
+		
+		system("cls");
+		cout<<"- - - - - - - - - - - - - - - - - - - - - - - - "<<endl;
+		cout<<"BIENVENIDO AL CAJERO AUTOMATICO | BANCOLOMBIA "<<endl;
+		cout<<"- - - - - - - - - - - - - - - - - - - - - - - - "<<endl;
+		
+		cout<<"\nOPCION 1: Ver mi saldo: ";
+		cout<<"\nOPCION 2: Retirar dinero: ";
+		cout<<"\nOPCION 3: Ingresar dinero: ";
+		cout<<"\nOPCION 4: SALIR: ";
+		cout<<"\nESCOJA UNA DE LAS OPCIONES: "; cin>>opc;
+			
+		switch(opc){
+			
+			case 1: 
+			    //VER SALDO
+		        
+		        system("cls");
+		        
+		        cout<<"- - - - - - - - - - - - - - - - - - - -"<<endl;
+		        cout<<"VER DINERO DE MI CUENTA | BANCOLOMBIA "<<endl;
+		        cout<<"- - - - - - - - - - - - - - - - - - - -"<<endl;
+		        
+		        cout<<"El saldo de su cuenta es de: $"<<saldo;
+		        
+		        break;
+		        
+			case 2: 
+		        //RETIRAR DINERO
+				
+				system("cls");
+				
+				cout<<"- - - - - - - - - - - - - - - - - - - - -"<<endl;
+		        cout<<"RETIRAR DINERO DE CUENTA | BANCOLOMBIA"<<endl;
+		        cout<<"- - - - - - - - - - - - - - - - - - - - -"<<endl;
+				
+				cout<<"\nIngrese la cantidad que desee retirar de su cuenta: "; cin>>valor;
+				
+				if(valor > saldo){
+					cout<<"El saldo no es suficiente: "; 
+				}
+				else{
+					saldo = (saldo - valor);
+					cout<<"Dinero retirado, el saldo de su cuenta es: $"<<saldo;
+				}
+				
+				break;
+		
+			case 3:
+				//INGRESAR DINERO
+				
+				system("cls");
+				
+				cout<<"- - - - - - - - - - - - - - - - - - - - -"<<endl;
+		        cout<<"INGRESAR DINERO A CUENTA | BANCOLOMBIA"<<endl;
+		        cout<<"- - - - - - - - - - - - - - - - - - - - -"<<endl;
+		        
+		        cout<<"\nIngrese la cantidad que desee ingresar: $"; cin>>valor;
+		        
+		        if(saldo + valor){
+		        	
+		        saldo = (saldo + valor);
+		        	
+		        	cout<<"\nEl dinero fue ingresado correctamente, su nuevo saldo es: $"<<saldo<<endl;
+				}
+				else{
+					cout<<"\nDigite de nuevo la cantidad a ingresar: "<<endl; cin>>saldo;
+				}
+				 break;
+								
+			case 4:
+				//SALIR
+				
+				system("cls");
+				cout<<"SALIENDO DEL PROGRAMA, POR FAVOR CONFIRME SU ACCION: "; 
+				
+				break;
+		
+		    	system("cls");
+		    	
+		    default: cout<<"Escoja una de las opciones validas: "; break;
+		}
+	
+	if(volverMenu){
+		cout<<"\nQuiere regresar al menu principal? (si: 1, no: 0)"; cin>>volverMenu;
+	}	
+	system("cls");	
+	}while(volverMenu);
+	
+	return 0;
+
+}
