@@ -1,0 +1,96 @@
+//menu para expresiones matematicas
+
+#include <iostream>
+#include <stdlib.h>
+#include <cmath>
+
+int main(){
+	
+	using namespace std;
+	
+	//INTERVALOS
+	
+	int numero;
+	int opc;
+	bool volverMenu = true;
+	
+	do{
+		
+	//MENSAJES DE PANTALLA
+	
+	cout<<"- - - - - - - - - - - - - - - - - - - - - - - - -"<<endl;
+	cout<<"BIENVENIDO AL MENU PRINCIPAL "<<endl;
+	cout<<"- - - - - - - - - - - - - - - - - - - - - - - - -"<<endl;
+	
+	cout<<"\nOPCION 1: Cubo de un numero";
+	cout<<"\nOPCION 2: Numero par o impar";
+	cout<<"\nOPCION 3: SALIR";
+	cout<<"\nEscoja una de las opciones: "; cin>>opc;
+	
+	switch (opc){
+		
+		case 1: 
+		
+		//CUBO DE UN NUMERO
+		
+		system("cls"); //LIMPIAMOS CONSOLA
+		
+		cout<<"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"<<endl;
+		cout<<"BIENVENIDO A LA PRIMERA OPCION: "<<endl;
+		cout<<"\nOPCION 1: Cubo de un numero"<<endl;
+	    cout<<"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"<<endl;
+	    
+		cout<<"\nDigita un numero: "; cin>>numero;
+		
+		numero = pow(numero,3);
+		
+		cout<<"\nEste es el resultado: "<<numero<<endl;
+		
+		break;
+		
+		case 2:
+		
+		//NUMERO PAR O IMPAR
+		
+		system("cls"); //LIMPIAMOS CONSOLA
+		
+		cout<<"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"<<endl;
+		cout<<"BIENVENIDO A LA SEGUNDA OPCION: "<<endl;
+		cout<<"\nOPCION 2: Numero par o impar"<<endl;
+	    cout<<"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"<<endl;
+		
+		cout<<"Digite un numero: "; cin>>numero;
+		
+		if (numero %2 == 0){
+		
+		    cout<<"El numero es impar";
+     	}
+	    else{
+		    cout<<"El numero es par";
+    	}
+		break; 
+		
+		case 3:
+			
+		//SALIR DEL PROGRAMA
+		
+		system("cls");
+	   
+	    cout<<"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"<<endl;
+		cout<<"SALIENDO DEL PROGRAMA... "<<endl;
+	    cout<<"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"<<endl;
+		
+	    break;
+	    
+		default: cout<<"Escoja una opcion valida"; break;
+		
+    }
+   if(volverMenu){
+   	 cout<<"\nQuiere volver al menu: (si: 1, no: 0): "; cin>>volverMenu;
+    }
+	
+	system("cls");
+    }while(volverMenu); 
+
+	return 0;
+}
